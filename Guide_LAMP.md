@@ -162,11 +162,12 @@ GRANT ALL PRIVILEGES ON Nom_De_Votre_BDD.* TO 'Nom_De_Votre_Utilisateur'@'localh
 cd /home/Utilisateur
 ```
 ou
+
 ```
 cd /home/debian
 ```
 
-
+```
 wget https://wordpress.org/latest.tar.gz
 ```
 ### On donne les permissions au dossier
