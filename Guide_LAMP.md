@@ -75,10 +75,12 @@ sudo mysql_secure_installation
 ### On se place dans le dossier des sites-available
 ### On copie le fichier de configuration par défaut et on le renomme
 
-````
+```
 cd /etc/apache2/sites-available
+```
+```
 cp 000-default.conf nom_de_votre_site.conf
-````
+```
 
 ## Etape 2
 
@@ -162,9 +164,8 @@ GRANT ALL PRIVILEGES ON Nom_De_Votre_BDD.* TO 'Nom_De_Votre_Utilisateur'@'localh
 cd /home/Utilisateur
 ```
 ou
-
 ```
-cd /home/debian
+cd /home/Debian
 ```
 
 ```
@@ -204,6 +205,28 @@ sudo rm latest.tar.gz
 
 ```
 sudo chown -R www-data:www-data /var/www/Nom_De_Votre_Site
-
+```
+```
 sudo chmod -R 755 /var/www/Nom_De_Votre_Site
+```
+
+
+## Installation d'un certificat SSL
+
+### On installe le certificat
+
+```
+sudo apt-get install certbot python3-certbot-apache -y
+```
+
+### On génère le certificat
+
+```
+sudo certbot --apache
+```
+
+### On redémarre le service apache2
+
+```
+sudo systemctl restart apache2
 ```
