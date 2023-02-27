@@ -34,6 +34,8 @@ php -v
 
 ```
 sudo apt-get install php libapache2-mod-php -y
+```
+```
 sudo apt-get install php-mysql -y
 ```
 
