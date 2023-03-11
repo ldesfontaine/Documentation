@@ -47,11 +47,13 @@ sudo cp --parents $(ldd /bin/bash | awk '/\/lib64/ {print $1}') /home/nom_du_use
 Ces commandes créent un dossier "chroot" dans le dossier personnel de l'utilisateur, copient le binaire "bash" et toutes ses bibliothèques partagées nécessaires pour l'environnement chroot.
 
 ## Création d'un lien symbolique
-
-Créez un lien symbolique du dossier dans /var/www/nom_du_user vers le dossier personnel de l'utilisateur :
-
+On créer le repertoire du user
 ```
-sudo ln -s /var/www/nom_du_user /home/nom_du_user/www
+sudo mkdir /home/nom_du_user/private
+```
+Créez un lien symbolique du dossier dans /var/www/nom_du_user vers le dossier personnel de l'utilisateur :
+```
+sudo ln -s /var/www/nom_du_user /home/nom_du_user/private/www
 ```
 ## Modification du shell par défaut de l'utilisateur
 
