@@ -29,7 +29,7 @@ sudo chmod -R 755 /var/www/nom_du_user
 ## Copie des fichiers nécessaires pour l'environnement chroot :
 
 ```
-sudo mkdir /home/nom_du_user/chroot
+sudo mkdir -p /home/nom_du_user/chroot/bin
 ```
 ```
 sudo cp /bin/bash /home/nom_du_user/chroot/bin
