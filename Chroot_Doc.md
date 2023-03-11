@@ -37,7 +37,7 @@ sudo cp /bin/bash /home/nom_du_user/chroot/bin/
 ```
 sudo mkdir -p /home/nom_du_user/chroot/{lib,lib64}
 ```
-Les 2 prochaines commandes peuvent avoir besoin d'un accées root
+Les 2 prochaines commandes peuvent avoir besoin d'un accès Root (su)
 ```
 ldd /bin/bash | grep "=>" | awk '{print $3}' | xargs -I '{}' cp -v '{}' /home/nom_du_user/chroot/lib
 ```
