@@ -32,7 +32,7 @@ sudo chmod -R 755 /var/www/nom_du_user
 sudo mkdir /home/nom_du_user/chroot
 ```
 ```
-sudo cp /bin/bash /home/nom_du_user/chroot/bin/
+sudo cp /bin/bash /home/nom_du_user/chroot/bin
 ```
 ```
 sudo mkdir -p /home/nom_du_user/chroot/{lib,lib64}
