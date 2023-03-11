@@ -4,7 +4,7 @@
 Créez un utilisateur avec un dossier personnel dans /home/nom_du_user :
 
 ```
-sudo adduser -m nom_du_user
+sudo adduser nom_du_user
 ```
 ## Création du dossier pour le site.
 
