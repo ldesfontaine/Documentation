@@ -6,6 +6,26 @@ Créez un utilisateur avec un dossier personnel dans /home/nom_du_user :
 ```
 sudo adduser nom_du_user
 ```
+ou
+```
+sudo useradd -m nom_user
+```
+```
+sudo passwd nom_user
+```
+
+## Modification du shell par défaut de l'utilisateur
+
+Modifiez le shell par défaut de l'utilisateur :
+```
+sudo usermod -s /bin/bash nom_du_user
+```
+
+Pour vérifier le shell de l'utilisateur
+```
+cat /etc/passwd | grep nom_du_user
+```
+
 ## Création du dossier pour le site.
 
 Créez un dossier pour le site dans /var/www/nom_du_user :
@@ -15,36 +35,95 @@ sudo mkdir /var/www/nom_du_user
 ```
 ## Modification des propriétaires et des permissions des dossiers.
 
-Changez les propriétaires et les permissions des dossiers :
+On créer le repertoire du user :
+```
+sudo mkdir -pv /home/nom_user
+```
+```
+sudo chown -Rv nom_user:nom_user /home/nom_user
+```
+```
+sudo chmod -Rv 700 /home/nom_user
+```
 
-```
-sudo chown nom_du_user:nom_du_user /home/nom_du_user
-```
-```
-sudo chown -R nom_du_user:www-data /var/www/nom_du_user
-```
-```
-sudo chmod -R 755 /var/www/nom_du_user
-```
-## Copie des fichiers nécessaires pour l'environnement chroot :
+## On créer les dossiers & dépendances necessaires pour les users :
 
+### On créer les repertoires :
 ```
-sudo mkdir -p /home/nom_du_user/chroot/bin
-```
-```
-sudo cp /bin/bash /home/nom_du_user/chroot/bin
+sudo mkdir -pv /home/nom_user/{bin,lib,lib64,dev,usr,etc}
 ```
 ```
-sudo mkdir -p /home/nom_du_user/chroot/{lib,lib64}
+sudo cp -v --parents /etc/{passwd,group} /home/nom_user/
 ```
+```
+ls -l /dev/{null,zero,stdin,stdout,stderr,random,tty}
+```
+```
+sudo mknod -m 666 /home/nom_user/dev/null c 1 3
+```
+```
+sudo mknod -m 666 /home/nom_user/dev/random c 1 8
+```
+```
+sudo mknod -m 666 /home/nom_user/dev/tty c 5 0
+```
+```
+sudo mknod -m 666 /home/nom_user/dev/zero c 1 5
+```
+```
+sudo ln -sv /proc/self/fd/2 /home/nom_user/dev/stderr
+```
+```
+sudo ln -sv /proc/self/fd/0 /home/nom_user/dev/stdin
+```
+```
+sudo ln -sv /proc/self/fd/1 /home/nom_user/dev/stdout
+```
+
+### On copie les commandes pour le user
+
+Minimal
+```
+sudo cp -v /bin/{bash} /home/nom_user/bin
+```
+
+Optionel
+```
+sudo cp -v /bin/{bash,ls,cat,nano,mv,mkdir} /home/nom_user/bin
+```
+
+Minimal
+```
+dlist="$(ldd /bin/{bash} | egrep -o '/lib.*\.[0-9]')"
+```
+```
+for i in $dlist; do sudo cp -v --parents "$i" "/home/nom_user"; done
+```
+Optionel
+```
+dlist="$(ldd /bin/{bash,ls,cat,nano,mv,mkdir} | egrep -o '/lib.*\.[0-9]')"
+```
+```
+for i in $dlist; do sudo cp -v --parents "$i" "/home/nom_user"; done
+```
+
+### Ces commandes permettent egalement de copier les libraires necessaires au fonctionement de la commande
+
 Les 2 prochaines commandes peuvent avoir besoin d'un accès Root (su)
 ```
-ldd /bin/bash | grep "=>" | awk '{print $3}' | xargs -I '{}' cp -v '{}' /home/nom_du_user/chroot/lib
+ldd /bin/bash | grep "=>" | awk '{print $3}' | xargs -I '{}' cp -v '{}' /home/nom_du_user/lib
 ```
 ```
-sudo cp --parents $(ldd /bin/bash | awk '/\/lib64/ {print $1}') /home/nom_du_user/chroot/
+sudo cp --parents $(ldd /bin/bash | awk '/\/lib64/ {print $1}') /home/nom_du_user/lib64
 ```
-Ces commandes créent un dossier "chroot" dans le dossier personnel de l'utilisateur, copient le binaire "bash" et toutes ses bibliothèques partagées nécessaires pour l'environnement chroot.
+
+## Ajout de l'utilisateur au groupe apache
+
+Ajoutez l'utilisateur à un groupe pour lui donner accès au dossier www :
+
+```
+sudo usermod -aG www-data nom_user
+```
 
 ## Création d'un lien symbolique
 On créer le repertoire du user
@@ -55,33 +134,30 @@ Créez un lien symbolique du dossier dans /var/www/nom_du_user vers le dossier p
 ```
 sudo ln -s /var/www/nom_du_user /home/nom_du_user/private/www
 ```
-## Modification du shell par défaut de l'utilisateur
 
-Modifiez le shell par défaut de l'utilisateur :
 
+## On modifie la configuration SSH
 ```
-sudo usermod -s /bin/bash nom_du_user
+sudo nano /etc/ssh/sshd_config
 ```
-
-Pour vérifier le shell de l'utilisateur
-
+A mettre a la fin du fichier
 ```
-cat /etc/passwd | grep nom_du_user
+Match User nom_user
+  ChrootDirectory /memeusers/userNOM_USER/private
 ```
 
-## Ajout de l'utilisateur à un groupe
-
-Ajoutez l'utilisateur à un groupe pour lui donner accès au dossier www :
-
+On redemarre le service ssh
 ```
-sudo usermod -aG www-data nom_du_user
+sudo systemctl restart ssh
 ```
+```
+sudo systemctl status ssh
+```
+
+
 ## Test de l'environnement chroot
 
 Testez l'environnement chroot en vous connectant en tant qu'utilisateur :
-
 ```
 sudo chroot /home/nom_du_user/chroot /bin/bash
 ```
-Une fois que l'environnement chroot est configuré, vous pouvez installer les applications nécessaires dans le dossier /var/www/nom_du_user, en veillant à ce que les fichiers soient accessibles à l'utilisateur "nom_du_user".
-Les commandes ci-dessus devraient vous permettre de créer un environnement chroot pour chaque utilisateur de votre site WordPress.
