@@ -110,6 +110,11 @@ sudo nano nom_de_votre_site.conf
 ## Etape 3
 
 ### On active le site
+## N'oublié pas de désactiver le site par défaut
+
+```
+sudo a2dissite 000-default.conf
+```
 
 ```
 sudo a2ensite nom_de_votre_site.conf
