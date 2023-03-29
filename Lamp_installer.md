@@ -44,7 +44,7 @@ sudo bash setup_lamp_wp.sh
 #### `Le mot de passe ne s'affiche pas lors da la saisie attentions` 
 ![](/images/script_lamp_wp/passwd_vps.png )
 
-### Une fois toutes ces étapes effectuées, votre installation de lamp sera terminé !
+### Une fois toutes ces étapes effectuées, votre installation de lamp sera terminée !
 #### Il vous suffira de redémarrer votre service apache, pour cela, vous pouvez utiliser la commande suivante:
 ```
 sudo service apache2 restart
