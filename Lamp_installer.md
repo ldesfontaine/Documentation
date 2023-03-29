@@ -39,7 +39,7 @@ sudo bash setup_lamp_wp.sh
 ### Une fois toutes les informations saisies, l'installation va commencer
 
 ### ATTENTION, pendant l'installation le script vous demandera de saisir 3 fois le mot de passe de votre vps
-#### Il s'agit du mot de passe de votre utilisateur root.
+#### Il s'agit du mot de passe de votre utilisateur root ou debian.
 ![](/images/script_lamp_wp/passwd.png )
 #### `Le mot de passe ne s'affiche pas lors da la saisie attentions` 
 ![](/images/script_lamp_wp/passwd_vps.png )
@@ -63,7 +63,7 @@ sudo service apache2 restart
 ### `Retenez bien ces informations, elles vous seront demandées lors de la configuration de wordpress`
 
 ### ATTENTION, pendant l'installation le script vous demandera de saisir 3 fois le mot de passe de votre vps
-#### Il s'agit du mot de passe de votre utilisateur root.
+#### Il s'agit du mot de passe de votre utilisateur root ou debian.
 ![](/images/script_lamp_wp/passwd.png )
 #### `Le mot de passe ne s'affiche pas lors da la saisie attentions`
 ![](/images/script_lamp_wp/passwd_vps.png )
