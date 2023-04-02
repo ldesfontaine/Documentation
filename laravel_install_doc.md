@@ -12,6 +12,7 @@ sudo apt install php7.2
 
 ## Install composer
 ```
+sudo apt install coposer
 composer install --no-dev
 ```
 
