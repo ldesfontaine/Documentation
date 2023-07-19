@@ -18,31 +18,31 @@ git clone https://github.com/ldesfontaine/lamp_installer_wp.git
 cd lamp_installer_wp
 ```
 
-![](/images/script_lamp_wp/ls.png )
+![](../images/script_lamp_wp/ls.png )
 - Lancer le script
 
-![](/images/script_lamp_wp/start.png )
+![](../images/script_lamp_wp/start.png )
 ```
 sudo bash setup_lamp_wp.sh
 ```
 
 
 ### Menu du script
-![](/images/script_lamp_wp/options.png )
+![](../images/script_lamp_wp/options.png )
 
 ## Options 1 : Installation de lamp
-![](/images/script_lamp_wp/start1.png )
+![](../images/script_lamp_wp/start1.png )
 
 ### Vous allez devoir saisir certaines informations permettant la configuration de votre fichier Apache et de Mysql:
-![](/images/script_lamp_wp/mysql_full_conf.png )
+![](../images/script_lamp_wp/mysql_full_conf.png )
 
 ### Une fois toutes les informations saisies, l'installation va commencer
 
 ### ATTENTION, pendant l'installation le script vous demandera de saisir 3 fois le mot de passe de votre vps
 #### Il s'agit du mot de passe de votre utilisateur root ou debian.
-![](/images/script_lamp_wp/passwd.png )
+![](../images/script_lamp_wp/passwd.png )
 #### `Le mot de passe ne s'affiche pas lors da la saisie attentions` 
-![](/images/script_lamp_wp/passwd_vps.png )
+![](../images/script_lamp_wp/passwd_vps.png )
 
 ### Une fois toutes ces étapes effectuées, votre installation de lamp sera terminée !
 #### Il vous suffira de redémarrer votre service apache, pour cela, vous pouvez utiliser la commande suivante:
@@ -56,20 +56,20 @@ sudo service apache2 restart
 
 
 ## Options 2 : Installation de wordpress
-![](/images/script_lamp_wp/start2.png )
+![](../images/script_lamp_wp/start2.png )
 
 ### Vous allez devoir saisir certaines informations permettant la configuration de votre fichier Apache et de Mysql:
-![](/images/script_lamp_wp/appache&mysql.png )
+![](../images/script_lamp_wp/appache&mysql.png )
 ### `Retenez bien ces informations, elles vous seront demandées lors de la configuration de wordpress`
 
 ### ATTENTION, pendant l'installation le script vous demandera de saisir 3 fois le mot de passe de votre vps
 #### Il s'agit du mot de passe de votre utilisateur root ou debian.
-![](/images/script_lamp_wp/passwd.png )
+![](../images/script_lamp_wp/passwd.png )
 #### `Le mot de passe ne s'affiche pas lors da la saisie attentions`
-![](/images/script_lamp_wp/passwd_vps.png )
+![](../images/script_lamp_wp/passwd_vps.png )
 
 ### Une fois toutes ces étapes effectuées, le script téléchargera Wordpress et le décompressera dans le dossier /var/www/Votre_Nom
-![](/images/script_lamp_wp/wp_dl.png )
+![](../images/script_lamp_wp/wp_dl.png )
 
 ### Une fois l'installation terminée, vous devrez configurer wordpress
 #### Pour cela, rendez-vous sur votre navigateur et saisissez l'adresse suivante:

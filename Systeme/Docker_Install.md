@@ -15,7 +15,7 @@
 
 1. Télécharger Docker Desktop pour Windows
     - [Docker Desktop pour Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-    - ![Docker Desktop pour Windows](images/Docker/dl_win_docker.png)
+    - ![Docker Desktop pour Windows](../images/Docker/dl_win_docker.png)
 
 2. Double-cliquer sur Docker Desktop Installer.exe pour lancer l'installateur.
     - Si vous n'avez pas Hyper-V d'activé, l'installateur vous proposera de l'activer.
@@ -28,5 +28,5 @@
  Il est possible de changer de mode en allant dans les paramètres de Docker Desktop.
    - Dans les paramètres de Docker Desktop, aller dans l'onglet General.
    - Voici les paramètres que je recommande :
-     - ![Docker Desktop pour Windows](images/Docker/docker_settings.png)
+     - ![Docker Desktop pour Windows](../images/Docker/docker_settings.png)
  ### Je vous conseille d'utilise Hyper-V car il est plus performant.
