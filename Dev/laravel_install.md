@@ -22,7 +22,7 @@ sudo apt install php8.0-mysql php8.0-xml php8.0-mbstring php8.0-zip php8.0-curl 
 
 ## Install composer
 ```
-sudo apt install coposer
+sudo apt install composer
 composer install --no-dev
 ```
 
