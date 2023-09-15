@@ -17,7 +17,7 @@ php -v
 
 ## Install php extensions
 ```
-sudo apt install php8.0-mysql php8.0-xml php8.0-mbstring php8.0-zip php8.0-curl php8.0-gd php8.0-bcmath php8.0-intl php8.0-imagick php8.0-redis php8.0-soap php8.0-xmlrpc php8.0-xsl php8.0-zip
+sudo apt install php8.1-mysql php8.1-xml php8.1-mbstring php8.1-zip php8.1-curl php8.1-gd php8.1-bcmath php8.1-intl php8.1-imagick php8.1-redis php8.1-soap php8.1-xmlrpc php8.1-xsl php8.1-zip
 ```
 
 ## Install composer
