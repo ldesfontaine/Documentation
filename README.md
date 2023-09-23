@@ -1,14 +1,6 @@
-# Vous pouvez aller regarder les documentations directement sur le [wiki](https://github.com/ldesfontaine/Documentation/wiki) :)
-
-
-
-
-
-
-
-
-
 # Documentation
+
+## Vous pouvez aller regarder les documentations directement sur le [wiki](https://github.com/ldesfontaine/Documentation/wiki) :)
 
 [Dev](Dev/README.md)
 
