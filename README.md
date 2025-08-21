@@ -1,7 +1,5 @@
 # Documentation
 
-tmp : https://docs.google.com/presentation/d/1DHk8Bu7EusTxgduTvt8N3qHebgBx6diT/edit?usp=sharing&ouid=103598857784866341497&rtpof=true&sd=true
-
 ## Vous pouvez aller regarder les documentations directement sur le [wiki](https://github.com/ldesfontaine/Documentation/wiki) :)
 
 [Dev](Dev/README.md)
